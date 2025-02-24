@@ -54,9 +54,8 @@ class CanadaTaxTypeResolver implements TaxTypeResolverInterface
 		foreach ($taxTypes as $taxType) {
 			$zone = $taxType->getZone();
 			if ($zone->match($customerAddress)) {
-
 				// Federal taxes (GST or HST)
-				if ($taxType->getGenericLabel() == 'GST' || $taxType->getGenericLabel() == 'HST') {
+				if ($taxType->getGenericLabel() == 'gst' || $taxType->getGenericLabel() == 'hst') {
 					$results[] = $taxType;
 				}
 				// Provincial taxes (PST, QST, RST), where the store is registered
